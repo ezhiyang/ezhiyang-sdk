@@ -67,9 +67,9 @@ public class OAuth2AuthHandler extends AbstractAuthHandler{
       if(newToken != null) {
         token = newToken.toString();
       }
-    }
-    if(StringUtils.isNotBlank(token)) {
-      cache.updateTokenInCache(clientId, token, expiredTime);
+      if(StringUtils.isNotBlank(token)) {
+        cache.updateTokenInCache(clientId, token, expiredTime);
+      }
     }
     
     return token;
