@@ -8,6 +8,12 @@
 	<version>1.0.1</version>
 	<packaging>jar</packaging>
 
+    <parent>
+        <groupId>org.sonatype.oss</groupId>
+        <artifactId>oss-parent</artifactId>
+        <version>9</version>
+    </parent>
+
 	<name>ralph-sdk</name>
 	<description>sdk for ralph</description>
     <url>https://github.com/theozhou/ralph-sdk</url>
