@@ -23,8 +23,8 @@ import com.ezhiyang.sdk.util.SignUtils;
  * AbstractExcuteHandler
  * @author Theo Zhou
  *
- * @param <R>
- * @param <D>
+ * @param <R> return vo of the sdk
+ * @param <D> wrap data of the response data
  */
 public abstract class AbstractExcuteHandler<R extends BaseReturnVo,D> implements Serializable{
 
@@ -34,15 +34,16 @@ public abstract class AbstractExcuteHandler<R extends BaseReturnVo,D> implements
   
   /**
    * get type code
-   * @return
+   * @return type of the sdk
    */
   protected abstract String getTypeCode();
   
   /**
    * 执行接口
-   * @param context
-   * @return
+   * @param context sdk centext
+   * @return result of the sdk excute
    */
+  @SuppressWarnings("unchecked")
   public R excute(SdkContext context) {
     ResponseWrapper response = null;
     RequestWrapper request = new RequestWrapper();
@@ -79,12 +80,15 @@ public abstract class AbstractExcuteHandler<R extends BaseReturnVo,D> implements
   
   /**
    * wrap response
-   * @param data
-   * @return
+   * @param data The data need be wrap
+   * @return wrapped data for return
    */
   protected abstract R wrapResponse(D data);
 
-  
+  /**
+   * build request body
+   * @return build body as a map 
+   */
   protected Map<String,Object> buildBody() {
     Map<String,Object> bodyMap = new HashMap<String, Object>(10);
     bodyMap.put("data", JsonUtils.toMap(this));
@@ -92,7 +96,11 @@ public abstract class AbstractExcuteHandler<R extends BaseReturnVo,D> implements
     return bodyMap;
   }
   
-  
+  /**
+   * call on before send.sign for the request.
+   * @param request request 
+   * @param context sdk context
+   */
   protected void onBeforeSend(RequestWrapper request,SdkContext context) {
     String type = getTypeCode();
     String privateKey = context.getPrivatekey();
@@ -100,10 +108,20 @@ public abstract class AbstractExcuteHandler<R extends BaseReturnVo,D> implements
     body.put("sign", SignUtils.sign(body,type,privateKey));
   }
   
+  /**
+   * call on after send 
+   * @param request request
+   * @param response response
+   */
   protected void onAfterSend(RequestWrapper request, ResponseWrapper response) {
     
   }
   
+  /**
+   * call on finally. wrap code and msg
+   * @param request request 
+   * @param response response
+   */
   protected void onFinal(RequestWrapper request, ResponseWrapper response) {
     Map<String,Object> replaceBody = new HashMap<String,Object>(10);
     Map<String,Object> body = response.getBody();
@@ -120,6 +138,12 @@ public abstract class AbstractExcuteHandler<R extends BaseReturnVo,D> implements
     response.setBody(replaceBody);
   }
 
+  /**
+   * call on cached exception
+   * @param request request
+   * @param response response
+   * @param e exception
+   */
   protected void onRequestError(RequestWrapper request, ResponseWrapper response, Throwable e) {
     logger.error(e.getMessage(),e);
     if(response == null) {

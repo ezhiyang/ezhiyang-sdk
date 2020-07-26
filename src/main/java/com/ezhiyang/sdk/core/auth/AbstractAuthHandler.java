@@ -17,17 +17,17 @@ public abstract class AbstractAuthHandler{
   
   /**
    * auth and get token
-   * @param clientConfig
-   * @param cache
-   * @return
+   * @param clientConfig client config
+   * @param cache token cache
+   * @return token
    */
   public abstract String auth(ClientConfig clientConfig,AbstractAuthCache cache);
   
   /**
    * wrap request
-   * @param request
-   * @param token
-   * @return
+   * @param request request @see RequestWrapper
+   * @param token token
+   * @return wrapped reqeust @see RequestWrapper
    */
   public abstract RequestWrapper wrapRequest(RequestWrapper request, String token);
 

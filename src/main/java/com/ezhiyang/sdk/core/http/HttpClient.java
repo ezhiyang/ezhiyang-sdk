@@ -52,8 +52,8 @@ public enum HttpClient{
 
   /**
    * execute http request
-   * @param requestWrapper
-   * @return
+   * @param requestWrapper request @see RequestWrapper
+   * @return response @see RequestWrapper
    */
   public ResponseWrapper execute(RequestWrapper requestWrapper) {
     return execute(requestWrapper, null);
@@ -61,9 +61,9 @@ public enum HttpClient{
 
   /**
    * execute http reuqest
-   * @param requestWrapper
-   * @param responseWrapper
-   * @return
+   * @param requestWrapper request @see RequestWrapper
+   * @param responseWrapper response @see RequestWrapper
+   * @return  response @see RequestWrapper
    */
   public ResponseWrapper execute(RequestWrapper requestWrapper, ResponseWrapper responseWrapper) {
     logger.info("\n\nSend Request:\n{}", requestWrapper);

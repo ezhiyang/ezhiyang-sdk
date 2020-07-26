@@ -17,13 +17,13 @@ public interface IRequestBodyWrapper {
    * wrap and set request,then return wrapped request
    * @param request request
    * @param body param
-   * @return
+   * @return request @see Request
    */
   Request wrapRequestBody(Request request, Map<String, Object> body);
   
   /**
    * supportType
-   * @return
+   * @return http body type (form/json) @see HttpBodyType
    */
   HttpBodyType getSupport();
   

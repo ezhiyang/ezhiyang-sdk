@@ -30,7 +30,7 @@ public class JsonUtils {
   /**
    * 获取ObjectMapper
    * 
-   * @return
+   * @return ObjectMapper 
    */
   public static ObjectMapper buildObjectMapper() {
     return buildObjectMapper(null);
@@ -49,10 +49,10 @@ public class JsonUtils {
 
   /**
    * JSON字符串转集合
-   * 
-   * @param json
-   * @param clazz
-   * @return
+   * @param <T> type
+   * @param json json
+   * @param clazz clazz
+   * @return list
    */
   public static <T> List<T> jsonToList(String json, Class<T> clazz) {
     ObjectMapper mapper = buildObjectMapper();
@@ -67,8 +67,8 @@ public class JsonUtils {
   /**
    * 对象转JSON字符串并格式化输出.
    * 
-   * @param object
-   * @return
+   * @param object object
+   * @return string
    */
   public static String prettyJson(Object object) {
     String json = null;
@@ -85,8 +85,8 @@ public class JsonUtils {
   /**
    * 对象转JSON字符串
    * 
-   * @param object
-   * @return
+   * @param object object
+   * @return string
    */
   public static String toJson(Object object) {
     return toJson(object, DEFAULT_DATE_FORMATE);
@@ -108,9 +108,9 @@ public class JsonUtils {
   /**
    * 对象转JSON字符串, 并忽略指定属性.
    * 
-   * @param object
-   * @param ignoreProperties
-   * @return
+   * @param object object
+   * @param ignoreProperties ignoreProperties
+   * @return String
    */
   public static String toJson(Object object, String... ignoreProperties) {
     ObjectMapper mapper = buildObjectMapper();
@@ -138,8 +138,8 @@ public class JsonUtils {
   /**
    * 对象解析为JSON Node
    * 
-   * @param obj
-   * @return
+   * @param obj obj
+   * @return static
    */
   public static JsonNode toJsonNode(Object obj) {
     if (obj == null) {
@@ -150,8 +150,9 @@ public class JsonUtils {
   }
 
   /**
-   * @param json
-   * @return
+   * toJsonNode
+   * @param json json
+   * @return JsonNode
    */
   public static JsonNode toJsonNode(String json) {
     if (json == null) {
@@ -181,8 +182,8 @@ public class JsonUtils {
   /**
    * Java对象转Map
    * 
-   * @param obj
-   * @return
+   * @param obj obj
+   * @return map
    */
   public static Map<String, Object> toMap(Object obj) {
     ObjectMapper mapper = buildObjectMapper();
@@ -197,8 +198,8 @@ public class JsonUtils {
   /**
    * JSON字符串转Map
    * 
-   * @param json
-   * @return
+   * @param json json
+   * @return map
    */
   public static Map<String, Object> toMap(String json) {
     if (json == null) {
@@ -217,8 +218,8 @@ public class JsonUtils {
   /**
    * JSON字符串转对象
    * 
-   * @param json
-   * @return
+   * @param json json
+   * @return object
    */
   public static Object toObject(String json) {
     return toObject(json, Object.class);
@@ -226,10 +227,10 @@ public class JsonUtils {
 
   /**
    * JSON字符串转指定类的实例.
-   * 
-   * @param json
-   * @param clazz
-   * @return
+   * @param <T> type
+   * @param json json
+   * @param clazz clazz
+   * @return T
    */
   public static <T> T toObject(String json, Class<T> clazz) {
     ObjectMapper mapper = buildObjectMapper();
@@ -243,8 +244,8 @@ public class JsonUtils {
   /**
    * JSON TreeNode 转对象
    * 
-   * @param treeNode
-   * @return
+   * @param treeNode treeNode
+   * @return object
    */
   public static Object toObject(TreeNode treeNode) {
     return toObject(treeNode, Object.class);
@@ -252,10 +253,10 @@ public class JsonUtils {
 
   /**
    * JSON TreeNode 转 指定类的实例
-   * 
-   * @param treeNode
-   * @param clazz
-   * @return
+   * @param <T> type
+   * @param treeNode treeNode
+   * @param clazz clazz
+   * @return T
    */
   public static <T> T toObject(TreeNode treeNode, Class<T> clazz) {
     ObjectMapper mapper = buildObjectMapper();

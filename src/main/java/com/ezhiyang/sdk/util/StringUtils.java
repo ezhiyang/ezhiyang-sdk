@@ -9,8 +9,8 @@ public class StringUtils {
 
   /**
    * string is not blank
-   * @param cs
-   * @return
+   * @param cs string
+   * @return if not blank return true
    */
   public static boolean isNotBlank(final CharSequence cs) {
     return !StringUtils.isBlank(cs);
@@ -18,8 +18,8 @@ public class StringUtils {
   
   /**
    * string is blank
-   * @param cs
-   * @return
+   * @param cs string
+   * @return if blank return true
    */
   public static boolean isBlank(final CharSequence cs) {
     int strLen;

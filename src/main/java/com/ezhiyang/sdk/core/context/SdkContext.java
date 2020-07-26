@@ -60,7 +60,7 @@ public class SdkContext {
 
   /**
    * get open url
-   * @return
+   * @return reutrn the open url
    */
   public String getOpenUrl() {
     if(clientConfig == null) {
@@ -71,7 +71,7 @@ public class SdkContext {
   
   /**
    * get private key
-   * @return
+   * @return return the private key
    */
   public String getPrivatekey() {
     if(clientConfig == null) {
@@ -82,8 +82,8 @@ public class SdkContext {
   
   /**
    * authentication
-   * @param request
-   * @return
+   * @param request request @see RequestWrapper
+   * @return the result of the authentication
    */
   public boolean authentication(RequestWrapper request) {
     if(authHandler == null) {

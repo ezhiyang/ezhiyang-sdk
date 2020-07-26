@@ -11,25 +11,30 @@ public abstract class AbstractAuthCache {
   /**
    * build cache key
    * @param clientId current clientId
-   * @return
+   * @return the key of the cahce
    */
   protected abstract String buildKey(String clientId);
   
   /**
    * get token by key
-   * @param key
-   * @return
+   * @param key key of the cahce
+   * @return token
    */
   protected abstract String getToken(String key);
   
   /**
    * update token by key 
-   * @param key
-   * @param token
-   * @param expiredTime
+   * @param key key of the cahce
+   * @param token token
+   * @param expiredTime expired time(s) default 7200
    */
   protected abstract void updateToken(String key,String token,long expiredTime);
   
+  /**
+   * get token in cache
+   * @param clientId clientId
+   * @return token in cache
+   */
   public String getTokenInCache(String clientId) {
     if(clientId == null) {
       return null;
@@ -41,6 +46,12 @@ public abstract class AbstractAuthCache {
     return getToken(key);
   }
   
+  /**
+   * update token in cache
+   * @param clientId clientId
+   * @param token token
+   * @param expiredTime expired time(s) default 7200
+   */
   public void updateTokenInCache(String clientId,String token,long expiredTime) {
     if(clientId == null) {
       return;
