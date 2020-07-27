@@ -13,12 +13,21 @@ public class QueryBalanceVo extends BaseReturnVo{
 
   private static final long serialVersionUID = 5641726282828699170L;
 
+  /**
+   * 账户余额
+   */
   private BigDecimal acctTotalBalance;
-  
+  /**
+   * 可用余额
+   */
   private BigDecimal acctBalance;
-  
+  /**
+   * 冻结余额
+   */
   private BigDecimal acctFreeze;
-  
+  /**
+   * 可下发余额
+   */
   private BigDecimal availableBalance;
 
   public BigDecimal getAcctTotalBalance() {

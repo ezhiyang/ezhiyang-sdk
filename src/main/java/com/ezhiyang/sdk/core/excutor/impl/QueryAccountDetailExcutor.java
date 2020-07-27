@@ -13,7 +13,7 @@ import com.ezhiyang.sdk.core.excutor.AbstractExcuteHandler;
 import com.ezhiyang.sdk.core.excutor.ret.QueryAccountDetailVo;
 import com.ezhiyang.sdk.core.excutor.ret.QueryAccountDetailVo.EntityListVo;
 /**
- * 
+ * 查询账户明细接口
  * @author Theo Zhou
  *
  */
@@ -21,12 +21,29 @@ public final class QueryAccountDetailExcutor extends AbstractExcuteHandler<Query
 
   private static final long serialVersionUID = -4984012293112519874L;
   private static final String ENTITY_LIST = "entityList";
-  
+  /**
+   * 企业标识
+   */
   private String companyCode;
+  /**
+   * 落地区域ID
+   */
   private Long taxAreaId;
+  /**
+   * 交易时间下限(yyyy-MM-dd HH:mm:ss)，最大区间三个月
+   */
   private Date queryStartDate;
+  /**
+   * 交易时间上限(yyyy-MM-dd HH:mm:ss)，最大区间三个月
+   */
   private Date queryEndDate;
+  /**
+   * 每页条数
+   */
   private Integer pageSize;
+  /**
+   * 当前页
+   */
   private Integer pageNo;
   
   

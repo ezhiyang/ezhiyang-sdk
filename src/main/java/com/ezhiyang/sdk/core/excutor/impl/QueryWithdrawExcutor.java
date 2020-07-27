@@ -20,7 +20,9 @@ import com.ezhiyang.sdk.core.excutor.ret.QueryWithdrawVo.QueryListVo;
 public class QueryWithdrawExcutor extends AbstractExcuteHandler<QueryWithdrawVo,List<Map<String,Object>>>{
 
   private static final long serialVersionUID = 4510592217295189968L;
-  
+  /**
+   * 查询信息列表(列表项最大1000)
+   */
   private List<QueryWithdrawParam> queryList;
   
   public void addQueryWithdrawParam(QueryWithdrawParam param) {
@@ -53,7 +55,9 @@ public class QueryWithdrawExcutor extends AbstractExcuteHandler<QueryWithdrawVo,
         QueryListVo vo = new QueryListVo();
         vo.setBizId(MapUtils.getString(d, "bizId"))
           .setStatus(MapUtils.getInteger(d, "status"))
-          .setTaskNo(MapUtils.getString(d, "taskNo"));
+          .setTaskNo(MapUtils.getString(d, "taskNo"))
+          .setErrorCode(MapUtils.getString(d, "errorCode"))
+          .setResultMsg(MapUtils.getString(d, "resultMsg"));
         l.add(vo);
       }
       ret.setQueryList(l);
@@ -64,7 +68,13 @@ public class QueryWithdrawExcutor extends AbstractExcuteHandler<QueryWithdrawVo,
   public static class QueryWithdrawParam implements Serializable{
     
     private static final long serialVersionUID = 3467606633311543192L;
+    /**
+     * 客户提供的唯一提现ID；bizId与taskNo至少填一个
+     */
     private String bizId;
+    /**
+     * 流水号；bizId与taskNo至少填一个
+     */
     private String taskNo;
     public String getBizId() {
       return bizId;

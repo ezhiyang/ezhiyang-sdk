@@ -11,8 +11,14 @@ public abstract class BaseReturnVo implements Serializable{
 
   private static final long serialVersionUID = 4921643239467041964L;
 
+  /**
+   * 返回码
+   */
   private int code;
   
+  /**
+   * 消息
+   */
   private String msg;
 
   public int getCode() {

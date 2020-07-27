@@ -17,8 +17,13 @@ public class QueryBalanceExcutor extends AbstractExcuteHandler<QueryBalanceVo,Ma
 
   private static final long serialVersionUID = 4510592217295189968L;
   
+  /**
+   * 企业标识
+   */
   private String companyCode;
-  
+  /**
+   * 落地区域ID
+   */
   private Long taxAreaId;
   
   public String getCompanyCode() {

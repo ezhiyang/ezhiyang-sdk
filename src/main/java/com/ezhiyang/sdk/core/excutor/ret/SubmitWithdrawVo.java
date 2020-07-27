@@ -34,11 +34,18 @@ public class SubmitWithdrawVo extends BaseReturnVo{
   public static class WithdrawListVo implements Serializable{
 
     private static final long serialVersionUID = -2830190768520152275L;
-
+    
+    /**
+     * 客户提供的唯一提现ID
+     */
     private String bizId;
-    
+    /**
+     * 提现发起返回码,参见附表3
+     */
     private Integer result;
-    
+    /**
+     * 流水号(结果为1-已受理时生成)
+     */
     private String taskNo;
 
     public String getBizId() {

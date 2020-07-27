@@ -15,6 +15,9 @@ public class QueryAvailableAmountVo extends BaseReturnVo{
 
   private static final long serialVersionUID = -8705043261008322121L;
   
+  /**
+   * 额度信息列表
+   */
   List<QueryListVo> queryList;
   
   public List<QueryListVo> getQueryList() {
@@ -41,10 +44,21 @@ public class QueryAvailableAmountVo extends BaseReturnVo{
   public static class QueryListVo implements Serializable{
 
     private static final long serialVersionUID = -2830190768520152275L;
-
+    /**
+     * 身份证
+     */
     private String certNo;
+    /**
+     * 姓名
+     */
     private String name;
+    /**
+     * 状态（1-用户存在,2-用户不存在，3-数据异常）
+     */
     private Integer status;
+    /**
+     * 可用额度（四舍五入，保留两位小数）
+     */
     private BigDecimal availableAmount;
     
     public String getCertNo() {

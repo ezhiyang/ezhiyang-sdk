@@ -64,7 +64,13 @@ public class QueryAvailableAmountExcutor extends AbstractExcuteHandler<QueryAvai
   public static class QueryAvailableAmountParam implements Serializable{
     
     private static final long serialVersionUID = 3467606633311543192L;
+    /**
+     * 身份证
+     */
     private String certNo;
+    /**
+     * 姓名
+     */
     private String name;
     
     public String getCertNo() {

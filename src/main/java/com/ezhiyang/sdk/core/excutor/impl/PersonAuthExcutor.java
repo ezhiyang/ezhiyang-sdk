@@ -5,7 +5,7 @@ import java.util.Map;
 import com.ezhiyang.sdk.core.excutor.AbstractExcuteHandler;
 import com.ezhiyang.sdk.core.excutor.ret.PersonAuthVo;
 /**
- * 
+ * 信息认证接口
  * @author Theo Zhou
  *
  */

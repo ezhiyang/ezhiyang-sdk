@@ -15,15 +15,25 @@ import com.ezhiyang.sdk.core.model.BaseReturnVo;
 public class QueryAccountDetailVo extends BaseReturnVo{
 
   private static final long serialVersionUID = 5641726282828699170L;
-
+  /**
+   * 每页条数
+   */
   private Integer pageSize;
-  
+  /**
+   * 当前页
+   */
   private Integer pageNo;
-  
+  /**
+   * 总页数
+   */
   private Integer pageCount;
-  
+  /**
+   * 总条数
+   */
   private Long totalCount;
-  
+  /**
+   * 账户明细列表
+   */
   private List<EntityListVo> entityList;
   
   public Integer getPageSize() {
@@ -92,19 +102,33 @@ public class QueryAccountDetailVo extends BaseReturnVo{
   public static class EntityListVo implements Serializable {
 
     private static final long serialVersionUID = -2341611490466401921L;
-    
+    /**
+     * 时间
+     */
     private Date transTime;
-    
+    /**
+     * 类型，参见附表7-账户交易类型
+     */
     private Integer dcFlag;
-    
+    /**
+     * 变动金额
+     */
     private BigDecimal transAmount;
-    
+    /**
+     * 账户余额
+     */
     private BigDecimal acctTotalBalance;
-    
+    /**
+     * 可用余额
+     */
     private BigDecimal acctBalance;
-    
+    /**
+     * 冻结余额
+     */
     private BigDecimal acctFreeze;
-    
+    /**
+     * 备注
+     */
     private String remark;
 
     public Date getTransTime() {
