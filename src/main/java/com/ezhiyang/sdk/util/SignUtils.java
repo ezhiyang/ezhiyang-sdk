@@ -26,7 +26,7 @@ public class SignUtils {
     JsonNode jsonNode = JsonUtils.toJsonNode(data);
     StringBuilder builder = new StringBuilder();
     JsonNodeSerializeUtil.jsonNodeToStr(builder, jsonNode.get("data"),
-      RalphServiceEnum.getByName(type).getSignPropsIn());
+      OpenServiceEnum.getByName(type).getSignPropsIn());
     builder.append("&signDate=").append(signDate);
 
     String signature;

@@ -4,7 +4,7 @@ package com.ezhiyang.sdk.util;
  * 开放接口枚举
  * @author ZY
  */
-public enum RalphServiceEnum {
+public enum OpenServiceEnum {
   /**
    * 1-认证
    */
@@ -60,14 +60,14 @@ public enum RalphServiceEnum {
   private String desc;
   private String signPropsIn;
 
-  private RalphServiceEnum(Integer id, String name, String desc, String signPropsIn) {
+  private OpenServiceEnum(Integer id, String name, String desc, String signPropsIn) {
     this.id = id;
     this.name = name;
     this.desc = desc;
     this.signPropsIn = signPropsIn;
   }
 
-  public static RalphServiceEnum getByName(String name) {
+  public static OpenServiceEnum getByName(String name) {
     if (PERSONAUTH.name.equals(name)) {
       return PERSONAUTH;
     } else if (SUBMITWITHDRAW.name.equals(name)) {

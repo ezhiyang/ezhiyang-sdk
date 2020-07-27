@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.ezhiyang</groupId>
-	<artifactId>ralph-sdk</artifactId>
+	<artifactId>ezhiyang-sdk</artifactId>
 	<version>1.0.1</version>
 	<packaging>jar</packaging>
 
@@ -14,9 +14,9 @@
         <version>9</version>
     </parent>
 
-	<name>ralph-sdk</name>
-	<description>sdk for ralph</description>
-    <url>https://github.com/theozhou/ralph-sdk</url>
+	<name>ezhiyang-sdk</name>
+	<description>sdk for ezhiyang</description>
+    <url>https://github.com/ezhiyang/ezhiyang-sdk</url>
     
     <developers>  
 	    <developer>  

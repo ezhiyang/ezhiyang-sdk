@@ -6,7 +6,7 @@ package com.ezhiyang.sdk.core.cache;
  */
 public abstract class AbstractAuthCache {
 
-  public static final String CACHE_PREFIX = "ezhiyang:ralph:";
+  public static final String CACHE_PREFIX = "ezhiyang:gateway:";
   
   /**
    * build cache key
