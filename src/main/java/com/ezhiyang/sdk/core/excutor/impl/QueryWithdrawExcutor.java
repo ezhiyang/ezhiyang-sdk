@@ -27,7 +27,7 @@ public class QueryWithdrawExcutor extends AbstractExcuteHandler<QueryWithdrawVo,
   
   /**
    * 添加查询参数
-   * @param param @see QueryWithdrawParam
+   * @param param param
    */
   public void addQueryWithdrawParam(QueryWithdrawParam param) {
     if(queryList == null) {
@@ -38,7 +38,7 @@ public class QueryWithdrawExcutor extends AbstractExcuteHandler<QueryWithdrawVo,
   
   /**
    * 获取查询参数列表
-   * @return
+   * @return List
    */
   public List<QueryWithdrawParam> getQueryList() {
     return queryList;
@@ -46,7 +46,7 @@ public class QueryWithdrawExcutor extends AbstractExcuteHandler<QueryWithdrawVo,
   
   /**
    * 设置查询参数
-   * @param queryList
+   * @param queryList queryList
    * @return QueryWithdrawExcutor
    */
   public QueryWithdrawExcutor setQueryList(List<QueryWithdrawParam> queryList) {
@@ -115,7 +115,7 @@ public class QueryWithdrawExcutor extends AbstractExcuteHandler<QueryWithdrawVo,
     
     /**
      * 客户提供的唯一提现ID；bizId与taskNo至少填一个
-     * @param bizId
+     * @param bizId bizId
      * @return QueryWithdrawParam
      */
     public QueryWithdrawParam setBizId(String bizId) {

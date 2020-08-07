@@ -46,7 +46,7 @@ public class QueryAccountDetailVo extends BaseReturnVo{
 
   /**
    * 每页条数
-   * @param pageSize
+   * @param pageSize pageSize
    * @return QueryAccountDetailVo
    */
   public QueryAccountDetailVo setPageSize(Integer pageSize) {
@@ -110,7 +110,7 @@ public class QueryAccountDetailVo extends BaseReturnVo{
 
   /**
    * 账户明细列表
-   * @return List<EntityListVo>
+   * @return List
    */
   public List<EntityListVo> getEntityList() {
     return entityList;
@@ -118,7 +118,7 @@ public class QueryAccountDetailVo extends BaseReturnVo{
 
   /**
    * 账户明细列表
-   * @param entityList List<EntityListVo>
+   * @param entityList List
    * @return QueryAccountDetailVo
    */
   public QueryAccountDetailVo setEntityList(List<EntityListVo> entityList) {

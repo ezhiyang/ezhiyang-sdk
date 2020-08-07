@@ -69,7 +69,7 @@ public final class PersonAuthExcutor extends AbstractExcuteHandler<PersonAuthVo,
 
   /**
    * 手机号
-   * @param mobile
+   * @param mobile mobile
    * @return PersonAuthExcutor
    */
   public PersonAuthExcutor setMobile(String mobile) {

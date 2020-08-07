@@ -220,7 +220,7 @@ public class SubmitWithdrawExcutor extends AbstractExcuteHandler<SubmitWithdrawV
     /**
      * 收款账号类型:1-银行卡，2-支付宝
      * @param accountType accountType
-     * @return @see SubmitWithdrawParam
+     * @return  SubmitWithdrawParam
      */
     public SubmitWithdrawParam setAccountType(Integer accountType) {
       this.accountType = accountType;

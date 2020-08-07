@@ -57,7 +57,7 @@ public final class QueryAccountDetailExcutor extends AbstractExcuteHandler<Query
 
   /**
    * 企业标识
-   * @param companyCode
+   * @param companyCode companyCode
    * @return QueryAccountDetailExcutor
    */
   public QueryAccountDetailExcutor setCompanyCode(String companyCode) {

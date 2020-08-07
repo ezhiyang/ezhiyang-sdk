@@ -54,7 +54,7 @@ public class QueryBalanceExcutor extends AbstractExcuteHandler<QueryBalanceVo,Ma
 
   /**
    * 落地区域ID
-   * @param taxAreaId
+   * @param taxAreaId taxAreaId
    * @return QueryBalanceExcutor
    */
   public QueryBalanceExcutor setTaxAreaId(Long taxAreaId) {

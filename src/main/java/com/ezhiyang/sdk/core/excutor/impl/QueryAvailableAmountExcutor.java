@@ -40,7 +40,7 @@ public class QueryAvailableAmountExcutor extends AbstractExcuteHandler<QueryAvai
   
   /**
    * 获取额度查询参数列表
-   * @return List<QueryAvailableAmountParam>
+   * @return List
    */
   public List<QueryAvailableAmountParam> getQueryList() {
     return queryList;
@@ -48,7 +48,7 @@ public class QueryAvailableAmountExcutor extends AbstractExcuteHandler<QueryAvai
   
   /**
    * 设置额度查询参数列表
-   * @param queryList List<QueryAvailableAmountParam>
+   * @param queryList List
    * @return QueryAvailableAmountExcutor
    */
   public QueryAvailableAmountExcutor setQueryList(List<QueryAvailableAmountParam> queryList) {

@@ -40,13 +40,13 @@ public abstract class AbstractExcuteHandler<R extends BaseReturnVo,D> implements
   
   /**
    * if need sign return true
-   * @return
+   * @return boolean
    */
   protected abstract boolean needSign();
   
   /**
    * sign properties
-   * @return
+   * @return String
    */
   protected abstract String signPropsIn();
   
