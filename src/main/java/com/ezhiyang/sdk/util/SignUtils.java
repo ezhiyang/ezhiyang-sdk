@@ -19,14 +19,14 @@ public class SignUtils {
   
   private static Logger logger = LoggerFactory.getLogger(SignUtils.class);
 
-  public static Map<String, Object> sign(Object data,String type,String privateKeyStr) {
+  public static Map<String, Object> sign(Object data,String type,String privateKeyStr,String signPropsIn) {
     SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
     String signDate = sdf.format(new Date());
 
     JsonNode jsonNode = JsonUtils.toJsonNode(data);
     StringBuilder builder = new StringBuilder();
     JsonNodeSerializeUtil.jsonNodeToStr(builder, jsonNode.get("data"),
-      OpenServiceEnum.getByName(type).getSignPropsIn());
+        signPropsIn);
     builder.append("&signDate=").append(signDate);
 
     String signature;

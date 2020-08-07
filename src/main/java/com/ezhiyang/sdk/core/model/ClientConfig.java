@@ -28,8 +28,18 @@ public final class ClientConfig implements Serializable{
   private String secret;
   
   private String privatekey;
-  
-  private long expiredTime = 3600; 
+  /**
+   * 缓存超时时间
+   */
+  private long expiredTime = 3600;
+  /**
+   * 连接超时时间
+   */
+  private Integer connectTimeout = 5000;
+  /**
+   * socket超时时间
+   */
+  private Integer socketTimeout = 30000;
   
   public ClientConfig(String url, String clientId, String secret, String privatekey) {
     super();
@@ -88,5 +98,23 @@ public final class ClientConfig implements Serializable{
   public long getExpiredTime() {
     return this.expiredTime;
   }
+
+  public Integer getConnectTimeout() {
+    return connectTimeout;
+  }
+
+  public void setConnectTimeout(Integer connectTimeout) {
+    this.connectTimeout = connectTimeout;
+  }
+
+  public Integer getSocketTimeout() {
+    return socketTimeout;
+  }
+
+  public void setSocketTimeout(Integer socketTimeout) {
+    this.socketTimeout = socketTimeout;
+  }
+  
+  
  
 }

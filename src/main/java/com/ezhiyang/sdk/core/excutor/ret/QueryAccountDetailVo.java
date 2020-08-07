@@ -36,47 +36,91 @@ public class QueryAccountDetailVo extends BaseReturnVo{
    */
   private List<EntityListVo> entityList;
   
+  /**
+   * 每页条数
+   * @return Integer
+   */
   public Integer getPageSize() {
     return pageSize;
   }
 
+  /**
+   * 每页条数
+   * @param pageSize
+   * @return QueryAccountDetailVo
+   */
   public QueryAccountDetailVo setPageSize(Integer pageSize) {
     this.pageSize = pageSize;
     return this;
   }
   
+  /**
+   * 当前页
+   * @return Integer
+   */
   public Integer getPageNo() {
     return pageNo;
   }
 
+  /**
+   * 当前页
+   * @param pageNo pageNo
+   * @return QueryAccountDetailVo
+   */
   public QueryAccountDetailVo setPageNo(Integer pageNo) {
     this.pageNo = pageNo;
     return this;
   }
 
+  /**
+   * 总页数
+   * @return Long
+   */
   public Long getTotalCount() {
     return totalCount;
   }
 
+  /**
+   * 总页数
+   * @param totalCount totalCount
+   * @return QueryAccountDetailVo
+   */
   public QueryAccountDetailVo setTotalCount(Long totalCount) {
     this.totalCount = totalCount;
     return this;
   }
   
-
+  /**
+   * 总页数
+   * @return Integer
+   */
   public Integer getPageCount() {
     return pageCount;
   }
 
+  /**
+   * 总页数
+   * @param pageCount pageCount
+   * @return QueryAccountDetailVo
+   */
   public QueryAccountDetailVo setPageCount(Integer pageCount) {
     this.pageCount = pageCount;
     return this;
   }
 
+  /**
+   * 账户明细列表
+   * @return List<EntityListVo>
+   */
   public List<EntityListVo> getEntityList() {
     return entityList;
   }
 
+  /**
+   * 账户明细列表
+   * @param entityList List<EntityListVo>
+   * @return QueryAccountDetailVo
+   */
   public QueryAccountDetailVo setEntityList(List<EntityListVo> entityList) {
     this.entityList = entityList;
     return this;
@@ -98,7 +142,11 @@ public class QueryAccountDetailVo extends BaseReturnVo{
         + getMsg() + "]";
   }
 
-
+  /**
+   * 账户明细
+   * @author Theo Zhou
+   *
+   */
   public static class EntityListVo implements Serializable {
 
     private static final long serialVersionUID = -2341611490466401921L;

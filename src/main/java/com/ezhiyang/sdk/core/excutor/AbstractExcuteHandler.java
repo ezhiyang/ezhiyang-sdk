@@ -39,6 +39,18 @@ public abstract class AbstractExcuteHandler<R extends BaseReturnVo,D> implements
   protected abstract String getTypeCode();
   
   /**
+   * if need sign return true
+   * @return
+   */
+  protected abstract boolean needSign();
+  
+  /**
+   * sign properties
+   * @return
+   */
+  protected abstract String signPropsIn();
+  
+  /**
    * 执行接口
    * @param context sdk centext
    * @return result of the sdk excute
@@ -62,7 +74,7 @@ public abstract class AbstractExcuteHandler<R extends BaseReturnVo,D> implements
       HttpClient client = HttpClient.getInstance();
       
       onBeforeSend(request,context);
-      response = client.execute(request);
+      response = client.execute(request,context.getConnectTimeout(),context.getSocketTimeout());
       onAfterSend(request,response);
       
     }catch(Throwable e) {
@@ -102,10 +114,12 @@ public abstract class AbstractExcuteHandler<R extends BaseReturnVo,D> implements
    * @param context sdk context
    */
   protected void onBeforeSend(RequestWrapper request,SdkContext context) {
-    String type = getTypeCode();
-    String privateKey = context.getPrivatekey();
-    Map<String, Object> body = request.getBody();
-    body.put("sign", SignUtils.sign(body,type,privateKey));
+    if(needSign()) {
+      String type = getTypeCode();
+      String privateKey = context.getPrivatekey();
+      Map<String, Object> body = request.getBody();
+      body.put("sign", SignUtils.sign(body,type,privateKey,signPropsIn()));
+    }
   }
   
   /**

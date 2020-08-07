@@ -46,56 +46,110 @@ public final class QueryAccountDetailExcutor extends AbstractExcuteHandler<Query
    */
   private Integer pageNo;
   
-  
+
+  /**
+   * 企业标识
+   * @return String
+   */
   public String getCompanyCode() {
     return companyCode;
   }
 
+  /**
+   * 企业标识
+   * @param companyCode
+   * @return QueryAccountDetailExcutor
+   */
   public QueryAccountDetailExcutor setCompanyCode(String companyCode) {
     this.companyCode = companyCode;
     return this;
   }
 
+  /**
+   * 落地区域ID
+   * @return Long
+   */
   public Long getTaxAreaId() {
     return taxAreaId;
   }
 
+  /**
+   * 落地区域ID
+   * @param taxAreaId taxAreaId
+   * @return QueryAccountDetailExcutor
+   */
   public QueryAccountDetailExcutor setTaxAreaId(Long taxAreaId) {
     this.taxAreaId = taxAreaId;
     return this;
   }
 
+  /**
+   * 交易时间下限(yyyy-MM-dd HH:mm:ss)，最大区间三个月
+   * @return Date
+   */
   public Date getQueryStartDate() {
     return queryStartDate;
   }
 
+  /**
+   * 交易时间下限(yyyy-MM-dd HH:mm:ss)，最大区间三个月
+   * @param queryStartDate queryStartDate
+   * @return QueryAccountDetailExcutor
+   */
   public QueryAccountDetailExcutor setQueryStartDate(Date queryStartDate) {
     this.queryStartDate = queryStartDate;
     return this;
   }
 
+  /**
+   * 交易时间上限(yyyy-MM-dd HH:mm:ss)，最大区间三个月
+   * @return Date
+   */
   public Date getQueryEndDate() {
     return queryEndDate;
   }
 
+  /**
+   * 交易时间上限(yyyy-MM-dd HH:mm:ss)，最大区间三个月
+   * @param queryEndDate queryEndDate
+   * @return QueryAccountDetailExcutor
+   */
   public QueryAccountDetailExcutor setQueryEndDate(Date queryEndDate) {
     this.queryEndDate = queryEndDate;
     return this;
   }
 
+  /**
+   * 每页条数
+   * @return Integer
+   */
   public Integer getPageSize() {
     return pageSize;
   }
 
+  /**
+   * 每页条数
+   * @param pageSize pageSize
+   * @return QueryAccountDetailExcutor
+   */
   public QueryAccountDetailExcutor setPageSize(Integer pageSize) {
     this.pageSize = pageSize;
     return this;
   }
 
+  /**
+   * 当前页
+   * @return Integer
+   */
   public Integer getPageNo() {
     return pageNo;
   }
 
+  /**
+   * 当前页
+   * @param pageNo pageNo
+   * @return QueryAccountDetailExcutor
+   */
   public QueryAccountDetailExcutor setPageNo(Integer pageNo) {
     this.pageNo = pageNo;
     return this;
@@ -151,29 +205,15 @@ public final class QueryAccountDetailExcutor extends AbstractExcuteHandler<Query
     }
     return null;
   }
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+
+  @Override
+  protected boolean needSign() {
+    return true;
+  }
+
+  @Override
+  protected String signPropsIn() {
+    return "companyCode,taxAreaId,queryStartDate,queryEndDate";
+  }
   
 }

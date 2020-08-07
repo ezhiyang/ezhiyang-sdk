@@ -26,19 +26,37 @@ public class QueryBalanceExcutor extends AbstractExcuteHandler<QueryBalanceVo,Ma
    */
   private Long taxAreaId;
   
+  /**
+   * 企业标识
+   * @return String
+   */
   public String getCompanyCode() {
     return companyCode;
   }
 
+  /**
+   * 企业标识
+   * @param companyCode companyCode
+   * @return QueryBalanceExcutor
+   */
   public QueryBalanceExcutor setCompanyCode(String companyCode) {
     this.companyCode = companyCode;
     return this;
   }
 
+  /**
+   * 落地区域ID
+   * @return Long
+   */
   public Long getTaxAreaId() {
     return taxAreaId;
   }
 
+  /**
+   * 落地区域ID
+   * @param taxAreaId
+   * @return QueryBalanceExcutor
+   */
   public QueryBalanceExcutor setTaxAreaId(Long taxAreaId) {
     this.taxAreaId = taxAreaId;
     return this;
@@ -64,6 +82,16 @@ public class QueryBalanceExcutor extends AbstractExcuteHandler<QueryBalanceVo,Ma
             data, "availableBalance", 0d)));
     }
     return vo;
+  }
+
+  @Override
+  protected boolean needSign() {
+    return true;
+  }
+
+  @Override
+  protected String signPropsIn() {
+    return "companyCode,taxAreaId";
   }
 
 }

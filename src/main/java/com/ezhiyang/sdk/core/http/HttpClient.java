@@ -55,8 +55,8 @@ public enum HttpClient{
    * @param requestWrapper request @see RequestWrapper
    * @return response @see RequestWrapper
    */
-  public ResponseWrapper execute(RequestWrapper requestWrapper) {
-    return execute(requestWrapper, null);
+  public ResponseWrapper execute(RequestWrapper requestWrapper,Integer connectTimeout,Integer socketTimeout) {
+    return execute(requestWrapper, null,connectTimeout,socketTimeout);
   }
 
   /**
@@ -65,7 +65,7 @@ public enum HttpClient{
    * @param responseWrapper response @see RequestWrapper
    * @return  response @see RequestWrapper
    */
-  public ResponseWrapper execute(RequestWrapper requestWrapper, ResponseWrapper responseWrapper) {
+  public ResponseWrapper execute(RequestWrapper requestWrapper, ResponseWrapper responseWrapper,Integer connectTimeout,Integer socketTimeout) {
     logger.info("\n\nSend Request:\n{}", requestWrapper);
 
     // get uri
@@ -93,7 +93,7 @@ public enum HttpClient{
     try {
       // 发送请求
       // Response response = request.execute();
-      Executor executor = Executor.newInstance(getHttpClient());
+      Executor executor = Executor.newInstance(getHttpClient(connectTimeout,socketTimeout));
       Response response = executor.execute(request);
       // 获取返回结果
       HttpResponse httpResponse = response.returnResponse();
@@ -161,7 +161,7 @@ public enum HttpClient{
 
   
 
-  public static CloseableHttpClient getHttpClient() {
+  public static CloseableHttpClient getHttpClient(Integer connectTimeout,Integer socketTimeout) {
     SSLContextBuilder builder = new SSLContextBuilder();
     try {
       builder.loadTrustMaterial(null, new TrustStrategy() {
@@ -183,9 +183,9 @@ public enum HttpClient{
     }
     RequestConfig requestConfig = RequestConfig.custom()  
         // 设置连接超时时间
-        .setConnectTimeout(5000) 
+        .setConnectTimeout(connectTimeout) 
         // 请求获取数据的超时时间(即响应时间)
-        .setSocketTimeout(30000).build(); 
+        .setSocketTimeout(socketTimeout).build(); 
     return HttpClients.custom().setDefaultRequestConfig(requestConfig).setSSLSocketFactory(sslsf).build();
   }
 

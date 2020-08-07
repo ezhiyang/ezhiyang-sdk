@@ -96,4 +96,12 @@ public class SdkContext {
     return token == null ? false:true;
   }
   
+  public Integer getConnectTimeout() {
+    return clientConfig.getConnectTimeout();
+  }
+  
+  public Integer getSocketTimeout() {
+    return clientConfig.getSocketTimeout();
+  }
+  
 }

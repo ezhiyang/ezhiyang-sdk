@@ -21,18 +21,34 @@ public abstract class BaseReturnVo implements Serializable{
    */
   private String msg;
 
+  /**
+   * 返回码
+   * @return int
+   */
   public int getCode() {
     return code;
   }
 
+  /**
+   * 设置返回码
+   * @param code code
+   */
   public void setCode(int code) {
     this.code = code;
   }
 
+  /**
+   * 响应消息
+   * @return String
+   */
   public String getMsg() {
     return msg;
   }
 
+  /**
+   * 响应消息
+   * @param msg msg
+   */
   public void setMsg(String msg) {
     this.msg = msg;
   }

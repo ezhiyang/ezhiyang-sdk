@@ -20,8 +20,16 @@ public class QueryAvailableAmountExcutor extends AbstractExcuteHandler<QueryAvai
 
   private static final long serialVersionUID = 4510592217295189968L;
   
+  /**
+   * 额度查询参数列表
+   */
   private List<QueryAvailableAmountParam> queryList;
   
+  /**
+   * 添加额度查询参数
+   * @param param param
+   * @return QueryAvailableAmountExcutor
+   */
   public QueryAvailableAmountExcutor addQueryAvailableAmountParam(QueryAvailableAmountParam param) {
     if(queryList == null) {
       queryList = new LinkedList<QueryAvailableAmountExcutor.QueryAvailableAmountParam>();
@@ -30,10 +38,19 @@ public class QueryAvailableAmountExcutor extends AbstractExcuteHandler<QueryAvai
     return this;
   }
   
+  /**
+   * 获取额度查询参数列表
+   * @return List<QueryAvailableAmountParam>
+   */
   public List<QueryAvailableAmountParam> getQueryList() {
     return queryList;
   }
   
+  /**
+   * 设置额度查询参数列表
+   * @param queryList List<QueryAvailableAmountParam>
+   * @return QueryAvailableAmountExcutor
+   */
   public QueryAvailableAmountExcutor setQueryList(List<QueryAvailableAmountParam> queryList) {
     this.queryList = queryList;
     return this;
@@ -60,7 +77,22 @@ public class QueryAvailableAmountExcutor extends AbstractExcuteHandler<QueryAvai
     }
     return ret;
   }
+  
+  @Override
+  protected boolean needSign() {
+    return true;
+  }
 
+  @Override
+  protected String signPropsIn() {
+    return "[queryList,certNo,name]";
+  }
+
+  /**
+   * 额度查询参数
+   * @author Theo Zhou
+   *
+   */
   public static class QueryAvailableAmountParam implements Serializable{
     
     private static final long serialVersionUID = 3467606633311543192L;
@@ -73,19 +105,37 @@ public class QueryAvailableAmountExcutor extends AbstractExcuteHandler<QueryAvai
      */
     private String name;
     
+    /**
+     * 获取身份证号
+     * @return String
+     */
     public String getCertNo() {
       return certNo;
     }
 
+    /**
+     * 设置身份证号
+     * @param certNo certNo
+     * @return QueryAvailableAmountParam
+     */
     public QueryAvailableAmountParam setCertNo(String certNo) {
       this.certNo = certNo;
       return this;
     }
 
+    /**
+     * 获取姓名
+     * @return String
+     */
     public String getName() {
       return name;
     }
 
+    /**
+     * 设置姓名
+     * @param name name
+     * @return QueryAvailableAmountParam
+     */
     public QueryAvailableAmountParam setName(String name) {
       this.name = name;
       return this;
@@ -96,7 +146,6 @@ public class QueryAvailableAmountExcutor extends AbstractExcuteHandler<QueryAvai
       return "QueryAvailableAmountParam [certNo=" + certNo + ", name=" + name + "]";
     }
 
-    
 
   }
 

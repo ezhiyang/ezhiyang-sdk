@@ -62,7 +62,8 @@ public class OAuth2AuthHandler extends AbstractAuthHandler{
       authRequest.addHeader(AUTHORIZATION,authorization);
       
       HttpClient client = HttpClient.getInstance();
-      ResponseWrapper response = client.execute(authRequest);
+      ResponseWrapper response = client.execute(authRequest,
+          clientConfig.getConnectTimeout(),clientConfig.getSocketTimeout());
       Object newToken = response.getBody().get("access_token");
       if(newToken != null) {
         token = newToken.toString();

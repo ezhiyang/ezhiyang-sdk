@@ -25,6 +25,10 @@ public class QueryWithdrawExcutor extends AbstractExcuteHandler<QueryWithdrawVo,
    */
   private List<QueryWithdrawParam> queryList;
   
+  /**
+   * 添加查询参数
+   * @param param @see QueryWithdrawParam
+   */
   public void addQueryWithdrawParam(QueryWithdrawParam param) {
     if(queryList == null) {
       queryList = new LinkedList<QueryWithdrawExcutor.QueryWithdrawParam>();
@@ -32,10 +36,19 @@ public class QueryWithdrawExcutor extends AbstractExcuteHandler<QueryWithdrawVo,
     queryList.add(param);
   }
   
+  /**
+   * 获取查询参数列表
+   * @return
+   */
   public List<QueryWithdrawParam> getQueryList() {
     return queryList;
   }
   
+  /**
+   * 设置查询参数
+   * @param queryList
+   * @return QueryWithdrawExcutor
+   */
   public QueryWithdrawExcutor setQueryList(List<QueryWithdrawParam> queryList) {
     this.queryList = queryList;
     return this;
@@ -64,7 +77,22 @@ public class QueryWithdrawExcutor extends AbstractExcuteHandler<QueryWithdrawVo,
     }
     return ret;
   }
+  
+  @Override
+  protected boolean needSign() {
+    return true;
+  }
 
+  @Override
+  protected String signPropsIn() {
+    return "[queryList,bizId,taskNo]";
+  }
+
+  /**
+   * 查询信息参数
+   * @author Theo Zhou
+   *
+   */
   public static class QueryWithdrawParam implements Serializable{
     
     private static final long serialVersionUID = 3467606633311543192L;
@@ -76,26 +104,47 @@ public class QueryWithdrawExcutor extends AbstractExcuteHandler<QueryWithdrawVo,
      * 流水号；bizId与taskNo至少填一个
      */
     private String taskNo;
+    
+    /**
+     * 客户提供的唯一提现ID；bizId与taskNo至少填一个
+     * @return String
+     */
     public String getBizId() {
       return bizId;
     }
+    
+    /**
+     * 客户提供的唯一提现ID；bizId与taskNo至少填一个
+     * @param bizId
+     * @return QueryWithdrawParam
+     */
     public QueryWithdrawParam setBizId(String bizId) {
       this.bizId = bizId;
       return this;
     }
+    
+    /**
+     * 流水号；bizId与taskNo至少填一个
+     * @return String
+     */
     public String getTaskNo() {
       return taskNo;
     }
+    
+    /**
+     * 流水号；bizId与taskNo至少填一个
+     * @param taskNo taskNo
+     * @return QueryWithdrawParam
+     */
     public QueryWithdrawParam setTaskNo(String taskNo) {
       this.taskNo = taskNo;
       return this;
     }
+    
     @Override
     public String toString() {
       return "QueryWithdrawParam [bizId=" + bizId + ", taskNo=" + taskNo + "]";
     }
-    
-    
     
   }
 
