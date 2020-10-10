@@ -180,14 +180,14 @@ public final class QueryAccountDetailExcutor extends AbstractExcuteHandler<Query
           EntityListVo entityVo = new EntityListVo();
           entityVo.setTransTime(entity.get("transTime") == null ? null : parseDate(entity.get("transTime").toString()))
           .setDcFlag(MapUtils.getInteger(entity, "dcFlag"))
-          .setTransAmount(BigDecimal.valueOf(MapUtils.getDouble(
-              entity, "transAmount", 0d)))
-          .setAcctTotalBalance(BigDecimal.valueOf(MapUtils.getDouble(
-              entity, "acctTotalBalance", 0d)))
-          .setAcctBalance(BigDecimal.valueOf(MapUtils.getDouble(
-              entity, "acctBalance", 0d)))
-          .setAcctFreeze(BigDecimal.valueOf(MapUtils.getDouble(
-              entity, "acctFreeze", 0d)))
+          .setTransAmount(MapUtils.getDouble(entity, "transAmount") == null ? null : BigDecimal.valueOf(MapUtils.getDouble(
+              entity, "transAmount")))
+          .setAcctTotalBalance(MapUtils.getDouble(entity, "acctTotalBalance") == null ? null : BigDecimal.valueOf(MapUtils.getDouble(
+              entity, "acctTotalBalance")))
+          .setAcctBalance(MapUtils.getDouble(entity, "acctBalance") == null ? null : BigDecimal.valueOf(MapUtils.getDouble(
+              entity, "acctBalance")))
+          .setAcctFreeze(MapUtils.getDouble(entity, "acctFreeze") == null ? null : BigDecimal.valueOf(MapUtils.getDouble(
+              entity, "acctFreeze")))
           .setRemark(MapUtils.getString(entity, "remark"));
           vo.addEntityVo(entityVo);
         }

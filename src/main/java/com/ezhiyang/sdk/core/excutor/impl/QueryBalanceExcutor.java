@@ -72,14 +72,14 @@ public class QueryBalanceExcutor extends AbstractExcuteHandler<QueryBalanceVo,Ma
   protected QueryBalanceVo wrapResponse(Map<String,Object> data) {
     QueryBalanceVo vo = new QueryBalanceVo();
     if(data != null) {
-      vo.setAcctTotalBalance(BigDecimal.valueOf(MapUtils.getDouble(
-          data, "acctTotalBalance", 0d)))
-        .setAcctBalance(BigDecimal.valueOf(MapUtils.getDouble(
-          data, "acctBalance", 0d)))
-        .setAcctFreeze(BigDecimal.valueOf(MapUtils.getDouble(
-            data, "acctFreeze", 0d)))
-        .setAvailableBalance(BigDecimal.valueOf(MapUtils.getDouble(
-            data, "availableBalance", 0d)));
+      vo.setAcctTotalBalance(MapUtils.getDouble(data, "acctTotalBalance") == null ? null : BigDecimal.valueOf(MapUtils.getDouble(
+          data, "acctTotalBalance")))
+        .setAcctBalance(MapUtils.getDouble(data, "acctBalance") == null ? null : BigDecimal.valueOf(MapUtils.getDouble(
+          data, "acctBalance")))
+        .setAcctFreeze(MapUtils.getDouble(data, "acctFreeze") == null ? null : BigDecimal.valueOf(MapUtils.getDouble(
+            data, "acctFreeze")))
+        .setAvailableBalance(MapUtils.getDouble(data, "availableBalance") == null ? null : BigDecimal.valueOf(MapUtils.getDouble(
+            data, "availableBalance")));
     }
     return vo;
   }

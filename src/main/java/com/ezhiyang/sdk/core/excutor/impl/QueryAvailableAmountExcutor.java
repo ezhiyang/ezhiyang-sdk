@@ -70,8 +70,8 @@ public class QueryAvailableAmountExcutor extends AbstractExcuteHandler<QueryAvai
         vo.setCertNo(MapUtils.getString(d, "certNo"))
           .setName(MapUtils.getString(d, "name"))
           .setStatus(MapUtils.getInteger(d, "status"))
-          .setAvailableAmount(BigDecimal.valueOf(MapUtils.getDouble(
-              d, "availableAmount", 0d)));
+          .setAvailableAmount(MapUtils.getDouble(d, "availableAmount") == null ? null : BigDecimal.valueOf(MapUtils.getDouble(
+              d, "availableAmount")));
         ret.addQueryListVo(vo);
       }
     }
