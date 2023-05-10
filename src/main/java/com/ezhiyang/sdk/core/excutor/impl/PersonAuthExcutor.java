@@ -36,6 +36,19 @@ public final class PersonAuthExcutor extends AbstractExcuteHandler<PersonAuthVo,
    */
   private String accountNo;
   
+  /**
+   * 身份证正面(base64)
+   */
+  private String certImgFront;
+  /**
+   * 身份证反面(base64)
+   */
+  private String certImgBack;
+  /**
+   * 人身核实截图照片路径
+   */
+  private String pvImgPath;
+  
   @Override
   protected String getTypeCode() {
     return "ralph.personAuth";
@@ -140,6 +153,34 @@ public final class PersonAuthExcutor extends AbstractExcuteHandler<PersonAuthVo,
   @Override
   protected boolean needSign() {
     return true;
+  }
+  
+
+  public String getCertImgFront() {
+    return certImgFront;
+  }
+
+  public PersonAuthExcutor setCertImgFront(String certImgFront) {
+    this.certImgFront = certImgFront;
+    return this;
+  }
+
+  public String getCertImgBack() {
+    return certImgBack;
+  }
+
+  public PersonAuthExcutor setCertImgBack(String certImgBack) {
+    this.certImgBack = certImgBack;
+    return this;
+  }
+
+  public String getPvImgPath() {
+    return pvImgPath;
+  }
+
+  public PersonAuthExcutor setPvImgPath(String pvImgPath) {
+    this.pvImgPath = pvImgPath;
+    return this;
   }
 
   @Override
