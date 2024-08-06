@@ -78,10 +78,11 @@ public abstract class AbstractExcuteHandler<R extends BaseReturnVo,D> implements
       onAfterSend(request,response);
       
     }catch(Throwable e) {
-      onRequestError(request,response,e);
-    }finally {
-      onFinal(request,response);
+      response = onRequestError(request,response,e);
     }
+    //do on final
+    onFinal(request,response);
+    
     //get body
     Map<String,Object> body = response.getBody();
     R r = wrapResponse((D)body.get("data"));
@@ -158,13 +159,12 @@ public abstract class AbstractExcuteHandler<R extends BaseReturnVo,D> implements
    * @param response response
    * @param e exception
    */
-  protected void onRequestError(RequestWrapper request, ResponseWrapper response, Throwable e) {
+  protected ResponseWrapper onRequestError(RequestWrapper request, ResponseWrapper response, Throwable e) {
     logger.error(e.getMessage(),e);
-    if(response == null) {
-      response = new ResponseWrapper();
-    }
+    response = new ResponseWrapper();
     response.addBody("resultCode", 500);
     response.addBody("resultMessage", e.getMessage());
+    return response;
   }
   
 }

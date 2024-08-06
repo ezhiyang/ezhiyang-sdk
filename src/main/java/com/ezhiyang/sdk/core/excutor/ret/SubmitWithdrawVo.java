@@ -26,7 +26,8 @@ public class SubmitWithdrawVo extends BaseReturnVo{
 
   @Override
   public String toString() {
-    return "SubmitWithdrawVo [withdrawList=" + withdrawList + "]";
+    return "SubmitWithdrawVo [withdrawList=" + withdrawList + ", getCode()=" + getCode() + ", getMsg()=" + getMsg()
+        + "]";
   }
 
 
